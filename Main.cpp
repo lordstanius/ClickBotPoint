@@ -714,3 +714,4 @@ void TfrmMain::OnItemClick(TListItem* item)
 	txtYcoord->Text = item->SubItems->Strings[1];
 }
 
+

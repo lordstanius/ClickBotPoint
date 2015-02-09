@@ -1,20 +1,19 @@
 object frmMain: TfrmMain
   Left = 300
   Top = 300
-  BorderIcons = [biSystemMenu]
+  BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Clicking bot 2.1p'
-  ClientHeight = 330
-  ClientWidth = 264
+  ClientHeight = 377
+  ClientWidth = 334
   Color = clWindow
-  Constraints.MaxWidth = 280
+  Constraints.MaxWidth = 350
   Constraints.MinHeight = 330
-  Constraints.MinWidth = 280
+  Constraints.MinWidth = 350
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  FormStyle = fsStayOnTop
   KeyPreview = True
   OldCreateOrder = False
   Position = poDesigned
@@ -22,43 +21,44 @@ object frmMain: TfrmMain
   OnDestroy = FormDestroy
   OnShow = FormShow
   DesignSize = (
-    264
-    330)
+    334
+    377)
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 8
-    Top = 64
+    Left = 18
+    Top = 60
     Width = 64
     Height = 13
     Caption = 'Boja kursora:'
   end
   object Label2: TLabel
-    Left = 139
-    Top = 64
+    Left = 179
+    Top = 60
     Width = 64
     Height = 13
+    Anchors = [akTop, akRight]
     Caption = 'Boja kursora:'
   end
   object Label3: TLabel
-    Left = 76
-    Top = 264
+    Left = 89
+    Top = 309
     Width = 67
     Height = 13
     Anchors = [akLeft, akBottom]
     Caption = 'Tra'#382'ena boja:'
   end
   object Label4: TLabel
-    Left = 187
-    Top = 265
+    Left = 239
+    Top = 309
     Width = 38
     Height = 13
     Anchors = [akLeft, akBottom]
     Caption = 'Pre'#269'ica:'
   end
   object txtShortcut: TEdit
-    Left = 231
-    Top = 263
+    Left = 283
+    Top = 307
     Width = 23
     Height = 21
     Anchors = [akLeft, akBottom]
@@ -67,11 +67,11 @@ object frmMain: TfrmMain
     TabOrder = 1
   end
   object btnOperation: TPanel
-    Left = 8
-    Top = 296
-    Width = 249
-    Height = 30
-    Anchors = [akLeft, akBottom]
+    Left = 22
+    Top = 332
+    Width = 285
+    Height = 37
+    Anchors = [akLeft, akRight, akBottom]
     BevelInner = bvSpace
     BevelKind = bkSoft
     BevelOuter = bvNone
@@ -90,8 +90,8 @@ object frmMain: TfrmMain
     OnMouseUp = btnOperationMouseUp
   end
   object btnSearchColor: TPanel
-    Left = 147
-    Top = 262
+    Left = 162
+    Top = 307
     Width = 24
     Height = 18
     Anchors = [akLeft, akBottom]
@@ -105,8 +105,8 @@ object frmMain: TfrmMain
     OnMouseUp = btnSearchColorMouseUp
   end
   object btnCursor1Color: TPanel
-    Left = 80
-    Top = 59
+    Left = 90
+    Top = 55
     Width = 28
     Height = 22
     BevelOuter = bvSpace
@@ -119,10 +119,11 @@ object frmMain: TfrmMain
     OnMouseUp = btnCursor1ColorMouseUp
   end
   object btnCursor2Color: TPanel
-    Left = 210
-    Top = 59
+    Left = 250
+    Top = 55
     Width = 28
     Height = 22
+    Anchors = [akTop, akRight]
     BevelOuter = bvSpace
     Color = clYellow
     ParentBackground = False
@@ -135,10 +136,10 @@ object frmMain: TfrmMain
   object listView1: TListView
     Tag = 1
     Left = 8
-    Top = 111
-    Width = 117
-    Height = 147
-    Anchors = [akLeft, akTop, akBottom]
+    Top = 107
+    Width = 156
+    Height = 189
+    Anchors = [akLeft, akTop, akRight, akBottom]
     Checkboxes = True
     Columns = <
       item
@@ -147,27 +148,34 @@ object frmMain: TfrmMain
       end
       item
         Caption = 'X'
-        Width = 45
+        Width = 65
       end
       item
         Caption = 'Y'
-        Width = 45
+        Width = 65
       end>
     ColumnClick = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = []
     GridLines = True
     MultiSelect = True
     RowSelect = True
+    ParentFont = False
+    SmallImages = ImageList
     TabOrder = 6
     ViewStyle = vsReport
     OnClick = listView1Click
     OnItemChecked = listView1ItemChecked
   end
   object listView2: TListView
-    Left = 138
-    Top = 111
-    Width = 117
-    Height = 147
-    Anchors = [akLeft, akTop, akBottom]
+    Left = 170
+    Top = 107
+    Width = 156
+    Height = 189
+    Anchors = [akTop, akRight, akBottom]
     Checkboxes = True
     Columns = <
       item
@@ -176,24 +184,31 @@ object frmMain: TfrmMain
       end
       item
         Caption = 'X'
-        Width = 45
+        Width = 65
       end
       item
         Caption = 'Y'
-        Width = 45
+        Width = 65
       end>
     ColumnClick = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = []
     GridLines = True
     MultiSelect = True
     RowSelect = True
+    ParentFont = False
+    SmallImages = ImageList
     TabOrder = 7
     ViewStyle = vsReport
     OnClick = listView2Click
     OnItemChecked = listView2ItemChecked
   end
   object btnAdd1: TPanel
-    Left = 8
-    Top = 90
+    Left = 18
+    Top = 86
     Width = 52
     Height = 18
     BevelInner = bvSpace
@@ -215,8 +230,8 @@ object frmMain: TfrmMain
     OnMouseUp = btnAdd1MouseUp
   end
   object btnRemove1: TPanel
-    Left = 70
-    Top = 90
+    Left = 80
+    Top = 86
     Width = 55
     Height = 18
     BevelInner = bvSpace
@@ -238,10 +253,11 @@ object frmMain: TfrmMain
     OnMouseUp = btnRemove1MouseUp
   end
   object btnRemove2: TPanel
-    Left = 203
-    Top = 90
+    Left = 243
+    Top = 86
     Width = 53
     Height = 18
+    Anchors = [akTop, akRight]
     BevelInner = bvSpace
     BevelKind = bkSoft
     BevelOuter = bvNone
@@ -261,10 +277,11 @@ object frmMain: TfrmMain
     OnMouseUp = btnRemove2MouseUp
   end
   object btnAdd2: TPanel
-    Left = 139
-    Top = 90
+    Left = 179
+    Top = 86
     Width = 51
     Height = 18
+    Anchors = [akTop, akRight]
     BevelInner = bvSpace
     BevelKind = bkSoft
     BevelOuter = bvNone
@@ -284,8 +301,8 @@ object frmMain: TfrmMain
     OnMouseUp = btnAdd2MouseUp
   end
   object upDown1: TUpDown
-    Left = 108
-    Top = 59
+    Left = 118
+    Top = 55
     Width = 17
     Height = 22
     Hint = 'Produ'#382'ava/skra'#263'uje virtuelni kursor'
@@ -299,11 +316,12 @@ object frmMain: TfrmMain
     OnClick = upDown1Click
   end
   object upDown2: TUpDown
-    Left = 239
-    Top = 59
+    Left = 279
+    Top = 55
     Width = 17
     Height = 22
     Hint = 'Produ'#382'ava/skra'#263'uje virtuelni kursor'
+    Anchors = [akTop, akRight]
     Min = 15
     Max = 200
     Increment = 2
@@ -314,8 +332,8 @@ object frmMain: TfrmMain
     OnClick = upDown2Click
   end
   object chkFreeze: TCheckBox
-    Left = 10
-    Top = 261
+    Left = 8
+    Top = 307
     Width = 50
     Height = 17
     Anchors = [akLeft, akBottom]
@@ -326,7 +344,7 @@ object frmMain: TfrmMain
   object GroupBox1: TGroupBox
     Left = 8
     Top = 4
-    Width = 384
+    Width = 318
     Height = 45
     Caption = 'Prozor'
     TabOrder = 0
@@ -361,8 +379,8 @@ object frmMain: TfrmMain
       TabOrder = 1
     end
     object btnWhere: TButton
-      Left = 160
-      Top = 16
+      Left = 222
+      Top = 15
       Width = 87
       Height = 23
       Caption = 'Poka'#382'i!'
@@ -373,5 +391,11 @@ object frmMain: TfrmMain
   object dlgColor: TColorDialog
     Left = 35
     Top = 356
+  end
+  object ImageList: TImageList
+    Height = 22
+    Width = 22
+    Left = 304
+    Top = 336
   end
 end

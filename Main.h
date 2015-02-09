@@ -14,6 +14,7 @@
 #include <Dialogs.hpp>
 #include <ComCtrls.hpp>
 #include "PixelLookup.h"
+#include <ImgList.hpp>
 //---------------------------------------------------------------------------
 class TfrmMain : public TForm
 {
@@ -43,6 +44,7 @@ __published:	// IDE-managed Components
 	TLabel *Label6;
 	TEdit *txtYcoord;
 	TButton *btnWhere;
+	TImageList *ImageList;
 	void __fastcall btnOperationMouseLeave(TObject *Sender);
 	void __fastcall btnOperationMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift, int X, int Y);
 	void __fastcall btnOperationMouseUp(TObject *Sender, TMouseButton Button, TShiftState Shift, int X, int Y);

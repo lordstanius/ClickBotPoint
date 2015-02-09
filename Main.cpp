@@ -599,7 +599,7 @@ void __fastcall TfrmMain::upDown1Click(TObject *Sender, TUDBtnType Button)
 void __fastcall TfrmMain::upDown2Click(TObject *Sender, TUDBtnType Button)
 {
 	frmCursor2->Width = upDown2->Position;
-	frmCursor1->Refresh();
+	frmCursor2->Refresh();
 }
 //---------------------------------------------------------------------------
 

@@ -1,0 +1,48 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{02EE28AA-EDC7-4F95-A6A9-6CA40E930519}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="ClickBotPoint.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ClickBot\ClickBot.cbproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="ClickBotPoint">
+			<MSBuild Projects="ClickBotPoint.cbproj"/>
+		</Target>
+		<Target Name="ClickBotPoint:Clean">
+			<MSBuild Targets="Clean" Projects="ClickBotPoint.cbproj"/>
+		</Target>
+		<Target Name="ClickBotPoint:Make">
+			<MSBuild Targets="Make" Projects="ClickBotPoint.cbproj"/>
+		</Target>
+		<Target Name="ClickBot">
+			<MSBuild Projects="..\ClickBot\ClickBot.cbproj"/>
+		</Target>
+		<Target Name="ClickBot:Clean">
+			<MSBuild Targets="Clean" Projects="..\ClickBot\ClickBot.cbproj"/>
+		</Target>
+		<Target Name="ClickBot:Make">
+			<MSBuild Targets="Make" Projects="..\ClickBot\ClickBot.cbproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="ClickBotPoint;ClickBot"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="ClickBotPoint:Clean;ClickBot:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="ClickBotPoint:Make;ClickBot:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

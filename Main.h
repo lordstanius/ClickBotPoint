@@ -44,7 +44,7 @@ __published:	// IDE-managed Components
 	TLabel *Label6;
 	TEdit *txtYcoord;
 	TButton *btnWhere;
-	TImageList *ImageList;
+	TImageList *CheckStates;
 	void __fastcall btnOperationMouseLeave(TObject *Sender);
 	void __fastcall btnOperationMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift, int X, int Y);
 	void __fastcall btnOperationMouseUp(TObject *Sender, TMouseButton Button, TShiftState Shift, int X, int Y);
@@ -87,6 +87,12 @@ __published:	// IDE-managed Components
 	void __fastcall btnWhereClick(TObject *Sender);
 	void __fastcall listView1Click(TObject *Sender);
 	void __fastcall listView2Click(TObject *Sender);
+	void __fastcall OnCustomDrawItem1(TCustomListView *Sender, TListItem *Item,TCustomDrawState State, bool &DefaultDraw);
+	void __fastcall OnCustomDrawItem2(TCustomListView *Sender, TListItem *Item,TCustomDrawState State, bool &DefaultDraw);
+	void __fastcall OnAdvCustomDrawItem(TCustomListView *Sender, TListItem *Item,
+          TCustomDrawState State, TCustomDrawStage Stage, bool &DefaultDraw);
+
+
 
 
 private:	// User declarations
@@ -103,6 +109,7 @@ private:	// User declarations
 	void ValidateListForItem(TListView* list, TListItem* item);
 	void DrawIndicatorRectangle(TListItem *item, TColor color);
 	void DrawRectangle(int x, int y, int width, int height, TColor color);
+	void SetRowColor(TCustomListView *Sender, TListItem *Item, TCustomDrawState State, TColor color);
 	void OnItemClick(TListItem* item);
 	void WriteSettings();
 	void LoadSettings();

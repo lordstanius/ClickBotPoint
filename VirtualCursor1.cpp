@@ -74,7 +74,7 @@ void __fastcall TfrmCursor1::FormMouseDown(TObject *Sender, TMouseButton Button,
 
 TPoint TfrmCursor1::GetCursorHitPoint()
 {
-	return TPoint(Left + Width, Top + 10);
+	return TPoint(Left + Width, Top + 18);
 }
 
 /*

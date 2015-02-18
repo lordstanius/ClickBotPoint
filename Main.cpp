@@ -586,6 +586,8 @@ void TfrmMain::LoadSettings()
 	int count = listView1->Items->Count;
 	for (int i = 0; i < count; ++i)
 		ValidateListForItem(listView2, listView1->Items->Item[i]);
+	listView1->Refresh();
+	listView2->Refresh();
 }
 
 //---------------------------------------------------------------------------
@@ -713,5 +715,61 @@ void TfrmMain::OnItemClick(TListItem* item)
 	txtXcoord->Text = item->SubItems->Strings[0];
 	txtYcoord->Text = item->SubItems->Strings[1];
 }
+//--------------------------------------------------------------------------
 
+void __fastcall TfrmMain::OnCustomDrawItem1(TCustomListView *Sender, TListItem *Item,
+		  TCustomDrawState State, bool &DefaultDraw)
+{
+	if (State.Empty())
+		return;
+
+	SetRowColor(listView1, Item, State, btnCursor1Color->Color);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfrmMain::OnCustomDrawItem2(TCustomListView *Sender, TListItem *Item,
+		  TCustomDrawState State, bool &DefaultDraw)
+{
+	if (State.Empty())
+		return;
+
+	SetRowColor(listView2, Item, State, btnCursor2Color->Color);
+}
+//---------------------------------------------------------------------------
+
+void TfrmMain::SetRowColor(TCustomListView *Sender, TListItem *Item,
+		  TCustomDrawState State, TColor color)
+{
+	TRect a = Item->DisplayRect(drBounds);
+
+	SetBkMode(Sender->Canvas->Handle, TRANSPARENT);
+	if (Item->Checked)
+	{
+		Sender->Canvas->Brush->Color = color;
+		Sender->Canvas->Font->Color = clWhite;
+		Sender->Canvas->Font->Style = TFontStyles()<<fsBold;
+	}
+	else
+	{
+		Sender->Canvas->Brush->Color = clWindow;
+		Sender->Canvas->Font->Color = clBlack;
+		Sender->Canvas->Font->Style = TFontStyles();
+	}
+	Sender->Canvas->FillRect(a);
+}
+//-----------------------------------------------------------------------
+
+void __fastcall TfrmMain::OnAdvCustomDrawItem(TCustomListView *Sender,
+	TListItem *Item, TCustomDrawState State, TCustomDrawStage Stage, bool &DefaultDraw)
+{
+	if (Stage == cdPostPaint)
+	{
+		TRect r = Item->DisplayRect(drIcon);
+		if (Item->Checked)
+			CheckStates->Draw(Sender->Canvas, r.Left - 17, r.Top+1, 0);
+		else
+			CheckStates->Draw(Sender->Canvas, r.Left - 17, r.Top+1, 1);
+	}
+}
+//---------------------------------------------------------------------------
 

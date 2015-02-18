@@ -98,15 +98,7 @@ void PixelLookup::DrawRectangle(HDC hdc, CRect r, TColor color)
 
 void __fastcall PixelLookup::Init()
 {
-
-	#ifdef _DEBUG
-	log.Write(L"Initializing first window.");
-	#endif
-	Initialize(frmMain->listView1, _rect1);
-
-	#ifdef _DEBUG
-	log.Write(L"Initializing second window.");
-	#endif
+    Initialize(frmMain->listView1, _rect1);
 	Initialize(frmMain->listView2, _rect2);
 }
 

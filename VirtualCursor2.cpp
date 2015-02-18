@@ -72,7 +72,7 @@ void __fastcall TfrmCursor2::FormMouseDown(TObject *Sender, TMouseButton Button,
 
 TPoint TfrmCursor2::GetCursorHitPoint()
 {
-	return TPoint(Left-1, Top + 20);
+	return TPoint(Left-1, Top + 18);
 }
 /*
 void __fastcall TfrmCursor2::FormKeyPress(TObject *Sender, wchar_t &Key)

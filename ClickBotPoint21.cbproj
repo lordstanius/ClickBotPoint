@@ -2,8 +2,8 @@
 		<PropertyGroup>
 			<ProjectGuid>{89B78E8F-8CDC-44B4-94B6-44F296953606}</ProjectGuid>
 			<ProjectVersion>12.0</ProjectVersion>
-			<MainSource>ClickBotPoint.cpp</MainSource>
-			<Config Condition="'$(Config)'==''">Debug</Config>
+			<MainSource>ClickBotPoint21.cpp</MainSource>
+			<Config Condition="'$(Config)'==''">Release</Config>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
 			<Base>true</Base>
@@ -68,18 +68,6 @@
 			<TASM_Debugging>None</TASM_Debugging>
 		</PropertyGroup>
 		<ItemGroup>
-			<CppCompile Include="Main.cpp">
-				<Form>frmMain</Form>
-				<DependentOn>Main.h</DependentOn>
-				<BuildOrder>2</BuildOrder>
-			</CppCompile>
-			<ResFiles Include="ClickBotPoint.res">
-				<BuildOrder>1</BuildOrder>
-			</ResFiles>
-			<CppCompile Include="PixelLookup.cpp">
-				<DependentOn>PixelLookup.h</DependentOn>
-				<BuildOrder>5</BuildOrder>
-			</CppCompile>
 			<CppCompile Include="VirtualCursor1.cpp">
 				<Form>frmCursor1</Form>
 				<DependentOn>VirtualCursor1.h</DependentOn>
@@ -90,12 +78,25 @@
 				<DependentOn>VirtualCursor2.h</DependentOn>
 				<BuildOrder>4</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="ClickBotPoint.cpp">
+			<CppCompile Include="ClickBotPoint21.cpp">
 				<BuildOrder>0</BuildOrder>
 			</CppCompile>
-			<FormResources Include="Main.dfm"/>
+			<CppCompile Include="Main.cpp">
+				<Form>frmMain</Form>
+				<DependentOn>Main.h</DependentOn>
+				<BuildOrder>2</BuildOrder>
+			</CppCompile>
+			<ResFiles Include="ClickBotPoint21.res">
+				<ModuleName>ClickBotPoint21.res</ModuleName>
+				<BuildOrder>1</BuildOrder>
+			</ResFiles>
+			<CppCompile Include="PixelLookup.cpp">
+				<DependentOn>PixelLookup.h</DependentOn>
+				<BuildOrder>5</BuildOrder>
+			</CppCompile>
 			<FormResources Include="VirtualCursor1.dfm"/>
 			<FormResources Include="VirtualCursor2.dfm"/>
+			<FormResources Include="Main.dfm"/>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
 			</BuildConfiguration>
@@ -120,7 +121,7 @@
 						<VersionInfo Name="MajorVer">2</VersionInfo>
 						<VersionInfo Name="MinorVer">1</VersionInfo>
 						<VersionInfo Name="Release">0</VersionInfo>
-						<VersionInfo Name="Build">60</VersionInfo>
+						<VersionInfo Name="Build">62</VersionInfo>
 						<VersionInfo Name="Debug">False</VersionInfo>
 						<VersionInfo Name="PreRelease">False</VersionInfo>
 						<VersionInfo Name="Special">False</VersionInfo>
@@ -132,7 +133,7 @@
 					<VersionInfoKeys>
 						<VersionInfoKeys Name="CompanyName"/>
 						<VersionInfoKeys Name="FileDescription"/>
-						<VersionInfoKeys Name="FileVersion">2.1.0.60</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">2.1.0.62</VersionInfoKeys>
 						<VersionInfoKeys Name="InternalName"/>
 						<VersionInfoKeys Name="LegalCopyright"/>
 						<VersionInfoKeys Name="LegalTrademarks"/>
@@ -167,7 +168,7 @@
 						<ProjectProperties Name="VerifyPackages">True</ProjectProperties>
 					</ProjectProperties>
 					<Source>
-						<Source Name="MainSource">ClickBotPoint.cpp</Source>
+						<Source Name="MainSource">ClickBotPoint21.cpp</Source>
 					</Source>
 				</CPlusPlusBuilder.Personality>
 			</BorlandProject>

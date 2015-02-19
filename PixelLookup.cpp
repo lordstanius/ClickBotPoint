@@ -35,8 +35,6 @@ void __fastcall PixelLookup::Execute()
 {
 	//log.WriteTimestamp();
 
-	Synchronize(&Init);
-
 	while (!Terminated && DoWork())
 		Sleep(1);
 
@@ -55,6 +53,8 @@ bool PixelLookup::DoWork()
 	bool isClicked1 = DoClick(frmMain->listView1, frmMain->clickPoint1, colorBuffer1, frmMain->btnCursor1Color->Color);
 	bool isClicked2 = DoClick(frmMain->listView2, frmMain->clickPoint2, colorBuffer2, frmMain->btnCursor2Color->Color);
 	*/
+	Synchronize(&Init);
+
 	bool isClicked1 = DoClick(_rect1, frmMain->clickPoint1);
 	bool isClicked2 = DoClick(_rect2, frmMain->clickPoint2);
 
@@ -98,7 +98,15 @@ void PixelLookup::DrawRectangle(HDC hdc, CRect r, TColor color)
 
 void __fastcall PixelLookup::Init()
 {
-    Initialize(frmMain->listView1, _rect1);
+
+	#ifdef _DEBUG
+	log.Write(L"Initializing first window.");
+	#endif
+	Initialize(frmMain->listView1, _rect1);
+
+	#ifdef _DEBUG
+	log.Write(L"Initializing second window.");
+	#endif
 	Initialize(frmMain->listView2, _rect2);
 }
 

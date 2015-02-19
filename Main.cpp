@@ -15,8 +15,8 @@
 
 
 TfrmMain *frmMain;
-static bool isPainted1 = false;
-static bool isPainted2 = false;
+//static bool isPainted1 = false;
+//static bool isPainted2 = false;
 
 HHOOK keyboardHook;
 //char shortcut = 0;
@@ -57,9 +57,7 @@ void __fastcall TfrmMain::FormShow(TObject *Sender)
 	frmCursor2->Show();
 	frmCursor1->Width = upDown1->Position;
 	frmCursor2->Width = upDown2->Position;
-
-	OnShow();
-
+	//OnShow();
 }
 //---------------------------------------------------------------------------
 void __fastcall TfrmMain::OperationPanelMouseEnter(TPanel *Sender)
@@ -722,22 +720,22 @@ void TfrmMain::OnItemClick(TListItem* item)
 void __fastcall TfrmMain::OnCustomDrawItem1(TCustomListView *Sender, TListItem *Item,
 		  TCustomDrawState State, bool &DefaultDraw)
 {
-	if (State.Empty() && isPainted1)
-		return;
+	//if (State.Empty() && isPainted1)
+	//	return;
 
 	SetRowColor(listView1, Item, State, btnCursor1Color->Color);
-	isPainted1 = true;
+	//isPainted1 = true;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfrmMain::OnCustomDrawItem2(TCustomListView *Sender, TListItem *Item,
 		  TCustomDrawState State, bool &DefaultDraw)
 {
-	if (State.Empty() && isPainted2)
-		return;
+	//if (State.Empty() && isPainted2)
+	//	return;
 
 	SetRowColor(listView2, Item, State, btnCursor2Color->Color);
-	isPainted2 = true;
+	//isPainted2 = true;
 }
 //---------------------------------------------------------------------------
 
@@ -747,16 +745,14 @@ void TfrmMain::SetRowColor(TListView *Sender, TListItem *Item,
 {
 	TRect a = Item->DisplayRect(drBounds);
 
-	//if (State.Contains(cdsHot) || State.Contains(cdsFocused))
-	  //		Sender->Canvas->FillRect(a);
-
 	SetBkMode(Sender->Canvas->Handle, TRANSPARENT);
 	if (Item->Checked)
 	{
 		Sender->Canvas->Brush->Color = color;
 		Sender->Canvas->Font->Color = clWhite;
 		Sender->Canvas->Font->Style = TFontStyles()<<fsBold;
-		Sender->Canvas->FillRect(a);
+		if (State.Contains(cdsHot) || State.Contains(cdsFocused))
+			Sender->Canvas->FillRect(a);
 	}
 	else
 	{

@@ -15,6 +15,8 @@
 
 
 TfrmMain *frmMain;
+static bool isPainted1 = false;
+static bool isPainted2 = false;
 
 HHOOK keyboardHook;
 //char shortcut = 0;
@@ -178,6 +180,7 @@ void __fastcall TfrmMain::btnCursor1ColorMouseUp(TObject *Sender, TMouseButton B
 	dlgColor->Execute();
 	btnCursor1Color->Color = dlgColor->Color;
 	frmCursor1->Refresh();
+	listView1->Refresh();
 }
 //---------------------------------------------------------------------------
 
@@ -204,6 +207,7 @@ void __fastcall TfrmMain::btnCursor2ColorMouseUp(TObject *Sender, TMouseButton B
 	dlgColor->Execute();
 	btnCursor2Color->Color = dlgColor->Color;
 	frmCursor2->Refresh();
+	listView2->Refresh();
 }
 //---------------------------------------------------------------------------
 
@@ -586,8 +590,6 @@ void TfrmMain::LoadSettings()
 	int count = listView1->Items->Count;
 	for (int i = 0; i < count; ++i)
 		ValidateListForItem(listView2, listView1->Items->Item[i]);
-	listView1->Refresh();
-	listView2->Refresh();
 }
 
 //---------------------------------------------------------------------------
@@ -720,27 +722,33 @@ void TfrmMain::OnItemClick(TListItem* item)
 void __fastcall TfrmMain::OnCustomDrawItem1(TCustomListView *Sender, TListItem *Item,
 		  TCustomDrawState State, bool &DefaultDraw)
 {
-	if (State.Empty())
+	if (State.Empty() && isPainted1)
 		return;
 
 	SetRowColor(listView1, Item, State, btnCursor1Color->Color);
+	isPainted1 = true;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfrmMain::OnCustomDrawItem2(TCustomListView *Sender, TListItem *Item,
 		  TCustomDrawState State, bool &DefaultDraw)
 {
-	if (State.Empty())
+	if (State.Empty() && isPainted2)
 		return;
 
 	SetRowColor(listView2, Item, State, btnCursor2Color->Color);
+	isPainted2 = true;
 }
 //---------------------------------------------------------------------------
 
-void TfrmMain::SetRowColor(TCustomListView *Sender, TListItem *Item,
+
+void TfrmMain::SetRowColor(TListView *Sender, TListItem *Item,
 		  TCustomDrawState State, TColor color)
 {
 	TRect a = Item->DisplayRect(drBounds);
+
+	//if (State.Contains(cdsHot) || State.Contains(cdsFocused))
+	  //		Sender->Canvas->FillRect(a);
 
 	SetBkMode(Sender->Canvas->Handle, TRANSPARENT);
 	if (Item->Checked)
@@ -748,6 +756,7 @@ void TfrmMain::SetRowColor(TCustomListView *Sender, TListItem *Item,
 		Sender->Canvas->Brush->Color = color;
 		Sender->Canvas->Font->Color = clWhite;
 		Sender->Canvas->Font->Style = TFontStyles()<<fsBold;
+		Sender->Canvas->FillRect(a);
 	}
 	else
 	{
@@ -755,7 +764,7 @@ void TfrmMain::SetRowColor(TCustomListView *Sender, TListItem *Item,
 		Sender->Canvas->Font->Color = clBlack;
 		Sender->Canvas->Font->Style = TFontStyles();
 	}
-	Sender->Canvas->FillRect(a);
+
 }
 //-----------------------------------------------------------------------
 

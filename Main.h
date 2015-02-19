@@ -109,7 +109,7 @@ private:	// User declarations
 	void ValidateListForItem(TListView* list, TListItem* item);
 	void DrawIndicatorRectangle(TListItem *item, TColor color);
 	void DrawRectangle(int x, int y, int width, int height, TColor color);
-	void SetRowColor(TCustomListView *Sender, TListItem *Item, TCustomDrawState State, TColor color);
+	void SetRowColor(TListView *Sender, TListItem *Item, TCustomDrawState State, TColor color);
 	void OnItemClick(TListItem* item);
 	void WriteSettings();
 	void LoadSettings();

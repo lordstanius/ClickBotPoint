@@ -214,14 +214,29 @@ bool PixelLookup::Click(TPoint clickPoint)
 	if (hwnd == NULL)
 		return false;
 
-	RECT windowRect;
-	GetWindowRect(hwnd, &windowRect);
+	//RECT windowRect;
+	//GetWindowRect(hwnd, &windowRect);
 
-	int x = clickPoint.x - windowRect.left;
-	int y = clickPoint.y - windowRect.top;
+	//int x = clickPoint.x - windowRect.left;
+	//int y = clickPoint.y - windowRect.top;
 
-	SendMessage(hwnd, WM_LBUTTONDOWN, 0, x | y << 16);
-	SendMessage(hwnd, WM_LBUTTONUP, 0, x | y << 16);
+	int x = clickPoint.x;
+	int y = clickPoint.y;
+
+	// INPUT in;
+	// ZeroMemory(&in, sizeof(in));
+	// in.type = INPUT_MOUSE;
+	// in.mi.dx = clickPoint.x;
+	// in.mi.dy = clickPoint.y;
+	// in.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_VIRTUALDESK | MOUSEEVENTF_MOVE;
+	// SendInput(1, &in, sizeof(in));
+	SetCursorPos(x, y);
+
+	mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+	mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+	mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+	// SendMessage(hwnd, WM_LBUTTONDOWN, 0, x | y << 16);
+	// SendMessage(hwnd, WM_LBUTTONUP, 0, x | y << 16);
 
 	return true;
 }

@@ -36,7 +36,9 @@ void __fastcall PixelLookup::Execute()
 	//log.WriteTimestamp();
 
 	while (!Terminated && DoWork())
+	{
 		Sleep(1);
+	}
 
 	Synchronize(&ShutDown);
 	/*
@@ -209,11 +211,6 @@ void PixelLookup::FlipBmpBuffer(unsigned char* buffer, int width, int height)
 
 bool PixelLookup::Click(TPoint clickPoint)
 {
-	HWND hwnd = WindowFromPoint(clickPoint);
-
-	if (hwnd == NULL)
-		return false;
-
 	//RECT windowRect;
 	//GetWindowRect(hwnd, &windowRect);
 
@@ -230,9 +227,12 @@ bool PixelLookup::Click(TPoint clickPoint)
 	// in.mi.dy = clickPoint.y;
 	// in.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_VIRTUALDESK | MOUSEEVENTF_MOVE;
 	// SendInput(1, &in, sizeof(in));
+	mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+	ReleaseCapture();
+
+	GetCursorPos(&_oldCursorPoint);
 	SetCursorPos(x, y);
 
-	mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
 	mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
 	mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
 	// SendMessage(hwnd, WM_LBUTTONDOWN, 0, x | y << 16);
@@ -247,6 +247,15 @@ void __fastcall PixelLookup::ShutDown()
 	frmMain->btnOperation->Caption = "OUT";
 	frmMain->btnOperation->Color = clRed;
 	frmMain->btnOperation->Tag = 0;
+	frmMain->BringToFront();
+
+	HWND hwnd = WindowFromPoint(_oldCursorPoint);
+	SetCursorPos(_oldCursorPoint.x, _oldCursorPoint.y);
+	if (frmMain->CurrentHwnd != NULL && (hwnd == frmCursor1->Handle || hwnd == frmCursor2->Handle))
+	{
+		SetCapture(frmMain->CurrentHwnd);
+		mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+	}
 
 	// disable
 	//frmMain->btnOperation->Font->Color = clGray;

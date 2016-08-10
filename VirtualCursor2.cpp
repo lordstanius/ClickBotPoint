@@ -66,13 +66,14 @@ void __fastcall TfrmCursor2::FormMouseUp(TObject *Sender, TMouseButton Button, T
 void __fastcall TfrmCursor2::FormMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift, int X, int Y)
 {
 	delta = TPoint(X,Y);
+    frmMain->CurrentHwnd = this->Handle;
 	isDragging = true;
 }
 //---------------------------------------------------------------------------
 
 TPoint TfrmCursor2::GetCursorHitPoint()
 {
-	return TPoint(Left-1, Top + 18);
+	return TPoint(Left-1, Top + 20);
 }
 /*
 void __fastcall TfrmCursor2::FormKeyPress(TObject *Sender, wchar_t &Key)

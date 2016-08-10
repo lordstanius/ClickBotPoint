@@ -30,7 +30,7 @@ private:
 
 	CRect _rect1;
 	CRect _rect2;
-
+    POINT _oldCursorPoint;
 	TColor _searchColor;
 	//TColor* colorBuffer1;
 	//TColor* colorBuffer2;

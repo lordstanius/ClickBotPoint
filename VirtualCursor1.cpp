@@ -67,14 +67,15 @@ void __fastcall TfrmCursor1::FormMouseUp(TObject *Sender, TMouseButton Button, T
 
 void __fastcall TfrmCursor1::FormMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift, int X, int Y)
 {
-    delta = TPoint(X,Y);
+	delta = TPoint(X,Y);
+	frmMain->CurrentHwnd = this->Handle;
 	isDragging = true;
 }
 //---------------------------------------------------------------------------
 
 TPoint TfrmCursor1::GetCursorHitPoint()
 {
-	return TPoint(Left + Width, Top + 18);
+	return TPoint(Left + Width, Top + 20);
 }
 
 /*

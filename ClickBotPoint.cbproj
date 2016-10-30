@@ -2,7 +2,7 @@
 		<PropertyGroup>
 			<ProjectGuid>{89B78E8F-8CDC-44B4-94B6-44F296953606}</ProjectGuid>
 			<ProjectVersion>12.0</ProjectVersion>
-			<MainSource>ClickBotPoint21.cpp</MainSource>
+			<MainSource>ClickBotPoint.cpp</MainSource>
 			<Config Condition="'$(Config)'==''">Release</Config>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
@@ -78,7 +78,7 @@
 				<DependentOn>VirtualCursor2.h</DependentOn>
 				<BuildOrder>4</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="ClickBotPoint21.cpp">
+			<CppCompile Include="ClickBotPoint.cpp">
 				<BuildOrder>0</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="Main.cpp">
@@ -86,7 +86,7 @@
 				<DependentOn>Main.h</DependentOn>
 				<BuildOrder>2</BuildOrder>
 			</CppCompile>
-			<ResFiles Include="ClickBotPoint21.res">
+			<ResFiles Include="ClickBotPoint.res">
 				<BuildOrder>1</BuildOrder>
 			</ResFiles>
 			<CppCompile Include="PixelLookup.cpp">
@@ -167,7 +167,7 @@
 						<ProjectProperties Name="VerifyPackages">True</ProjectProperties>
 					</ProjectProperties>
 					<Source>
-						<Source Name="MainSource">ClickBotPoint21.cpp</Source>
+						<Source Name="MainSource">ClickBotPoint.cpp</Source>
 					</Source>
 				</CPlusPlusBuilder.Personality>
 			</BorlandProject>

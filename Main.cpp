@@ -122,10 +122,8 @@ void TfrmMain::OperationButtonClick()
 		if (plThread != NULL)
 		{
 			if (!plThread->Finished)
-			{
 				plThread->Terminate();
-				//plThread->WaitFor();
-			}
+
 			plThread = NULL;
 		}
 

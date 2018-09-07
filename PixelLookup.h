@@ -22,15 +22,15 @@ private:
 	void __fastcall ShutDown();
 	void __fastcall Init();
 	//void LoadBuffer(TColor* buffer, TPoint p, int size, HDC hdc);
-	bool DoWork();
+	bool IsClicked();
 	//void FillBuffer(TListView* list, TColor** cb);
 	void Initialize(TListView* list, CRect& rect);
-	bool Click(TPoint clickPoint);
-	bool DoClick(CRect r, TPoint clickPoint);
+	void Click(TPoint clickPoint);
+	bool IsPixelMatched(CRect r, TPoint clickPoint);
 
 	CRect _rect1;
 	CRect _rect2;
-    POINT _oldCursorPoint;
+	POINT _oldCursorPoint;
 	TColor _searchColor;
 	//TColor* colorBuffer1;
 	//TColor* colorBuffer2;

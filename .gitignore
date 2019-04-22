@@ -1,4 +1,3 @@
-
 #ignore thumbnails created by windows
 Thumbs.db
 #Ignore files build by Visual Studio
@@ -23,6 +22,7 @@ Thumbs.db
 [Dd]ebug*/
 *.lib
 *.sbr
+*.local
 obj/
 [Rr]elease*/
 _ReSharper*/

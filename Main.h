@@ -92,9 +92,6 @@ __published:	// IDE-managed Components
 	void __fastcall OnAdvCustomDrawItem(TCustomListView *Sender, TListItem *Item,
           TCustomDrawState State, TCustomDrawStage Stage, bool &DefaultDraw);
 
-
-
-
 private:	// User declarations
 	void __fastcall PanelMouseEnter(TPanel *Sender);
 	void __fastcall PanelMouseLeave(TPanel *Sender);

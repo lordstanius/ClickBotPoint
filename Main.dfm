@@ -312,11 +312,11 @@ object frmMain: TfrmMain
     Width = 17
     Height = 22
     Hint = 'Produ'#382'ava/skra'#263'uje virtuelni kursor'
-    Min = 15
+    Min = 107
     Max = 200
     Increment = 2
     ParentShowHint = False
-    Position = 56
+    Position = 107
     ShowHint = True
     TabOrder = 12
     OnClick = upDown1Click
@@ -328,11 +328,11 @@ object frmMain: TfrmMain
     Height = 22
     Hint = 'Produ'#382'ava/skra'#263'uje virtuelni kursor'
     Anchors = [akTop, akRight]
-    Min = 15
+    Min = 107
     Max = 200
     Increment = 2
     ParentShowHint = False
-    Position = 56
+    Position = 107
     ShowHint = True
     TabOrder = 13
     OnClick = upDown2Click
@@ -405,7 +405,7 @@ object frmMain: TfrmMain
     Left = 304
     Top = 336
     Bitmap = {
-      494C010102000800380011001600FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010102000800480011001600FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000440000001600000001002000000000006017
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

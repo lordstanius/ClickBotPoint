@@ -1,2 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject/>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020.04.07 12:42:02.468.cbproj,D:\Projects\CBuilder\ClickBotPoint\ClickBotPoint.cbproj=D:\Projects\CBuilder\ClickBotPoint\ClickBotPoint.cbproj</Transaction>
+  </Transactions>
+</BorlandProject>

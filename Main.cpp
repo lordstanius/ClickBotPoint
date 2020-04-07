@@ -523,7 +523,7 @@ void TfrmMain::LoadSettings()
 	int count2 = GetPrivateProfileInt(TEXT("General"), TEXT("List2EntryCount"), 0, path.t_str());
 	Left = GetPrivateProfileInt(TEXT("General"), TEXT("Left"), 300, path.t_str());
 	Top = GetPrivateProfileInt(TEXT("General"), TEXT("Top"), 300, path.t_str());
-	Height = GetPrivateProfileInt(TEXT("General"), TEXT("Height"), 330, path.t_str());
+	Height = GetPrivateProfileInt(TEXT("General"), TEXT("Height"), 416, path.t_str());
 	btnSearchColor->Color = GetPrivateProfileInt(TEXT("General"), TEXT("SearchColor"), clLime, path.t_str());
 	GetPrivateProfileString(TEXT("General"), TEXT("Shortcut"), TEXT(""), keyValue, 1024, path.t_str());
 	txtShortcut->Text = String(keyValue);

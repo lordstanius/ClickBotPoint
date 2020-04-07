@@ -45,6 +45,8 @@ __published:	// IDE-managed Components
 	TEdit *txtYcoord;
 	TButton *btnWhere;
 	TImageList *CheckStates;
+	TSplitter *Splitter1;
+	TPanel *Panel1;
 	void __fastcall btnOperationMouseLeave(TObject *Sender);
 	void __fastcall btnOperationMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift, int X, int Y);
 	void __fastcall btnOperationMouseUp(TObject *Sender, TMouseButton Button, TShiftState Shift, int X, int Y);

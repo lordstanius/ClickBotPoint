@@ -4,10 +4,10 @@ object frmMain: TfrmMain
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Clicking bot 2.3p'
   ClientHeight = 377
-  ClientWidth = 334
+  ClientWidth = 341
   Color = clWindow
   Constraints.MaxWidth = 458
-  Constraints.MinHeight = 330
+  Constraints.MinHeight = 350
   Constraints.MinWidth = 348
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -23,7 +23,7 @@ object frmMain: TfrmMain
   OnDestroy = FormDestroy
   OnShow = FormShow
   DesignSize = (
-    334
+    341
     377)
   PixelsPerInch = 96
   TextHeight = 13
@@ -35,12 +35,13 @@ object frmMain: TfrmMain
     Caption = 'Boja kursora:'
   end
   object Label2: TLabel
-    Left = 179
+    Left = 186
     Top = 60
     Width = 64
     Height = 13
     Anchors = [akTop, akRight]
     Caption = 'Boja kursora:'
+    ExplicitLeft = 179
   end
   object Label3: TLabel
     Left = 89
@@ -51,27 +52,27 @@ object frmMain: TfrmMain
     Caption = 'Tra'#382'ena boja:'
   end
   object Label4: TLabel
-    Left = 239
-    Top = 309
+    Left = 266
+    Top = 308
     Width = 38
     Height = 13
-    Anchors = [akLeft, akBottom]
+    Anchors = [akRight, akBottom]
     Caption = 'Pre'#269'ica:'
   end
   object txtShortcut: TEdit
-    Left = 283
-    Top = 307
+    Left = 310
+    Top = 306
     Width = 23
     Height = 21
-    Anchors = [akLeft, akBottom]
+    Anchors = [akRight, akBottom]
     CharCase = ecUpperCase
     MaxLength = 1
     TabOrder = 1
   end
   object btnOperation: TPanel
-    Left = 22
+    Left = 8
     Top = 332
-    Width = 285
+    Width = 325
     Height = 37
     Anchors = [akLeft, akRight, akBottom]
     BevelInner = bvSpace
@@ -90,6 +91,7 @@ object frmMain: TfrmMain
     OnMouseDown = btnOperationMouseDown
     OnMouseLeave = btnOperationMouseLeave
     OnMouseUp = btnOperationMouseUp
+    ExplicitWidth = 318
   end
   object btnSearchColor: TPanel
     Left = 162
@@ -121,7 +123,7 @@ object frmMain: TfrmMain
     OnMouseUp = btnCursor1ColorMouseUp
   end
   object btnCursor2Color: TPanel
-    Left = 250
+    Left = 257
     Top = 55
     Width = 28
     Height = 22
@@ -134,83 +136,7 @@ object frmMain: TfrmMain
     OnMouseEnter = btnCursor2ColorMouseEnter
     OnMouseLeave = btnCursor2ColorMouseLeave
     OnMouseUp = btnCursor2ColorMouseUp
-  end
-  object listView1: TListView
-    Tag = 1
-    Left = 6
-    Top = 107
-    Width = 158
-    Height = 189
-    Anchors = [akLeft, akTop, akRight, akBottom]
-    Checkboxes = True
-    Columns = <
-      item
-        Caption = '#'
-        Width = 24
-      end
-      item
-        Caption = 'X'
-        Width = 65
-      end
-      item
-        Caption = 'Y'
-        Width = 65
-      end>
-    ColumnClick = False
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    GridLines = True
-    MultiSelect = True
-    RowSelect = True
-    ParentFont = False
-    TabOrder = 6
-    ViewStyle = vsReport
-    OnAdvancedCustomDrawItem = OnAdvCustomDrawItem
-    OnClick = listView1Click
-    OnCustomDrawItem = OnCustomDrawItem1
-    OnItemChecked = listView1ItemChecked
-  end
-  object listView2: TListView
-    Left = 170
-    Top = 107
-    Width = 159
-    Height = 189
-    Anchors = [akTop, akRight, akBottom]
-    Checkboxes = True
-    Columns = <
-      item
-        Caption = '#'
-        Width = 24
-      end
-      item
-        Caption = 'X'
-        Width = 65
-      end
-      item
-        Caption = 'Y'
-        Width = 65
-      end>
-    ColumnClick = False
-    DoubleBuffered = True
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    GridLines = True
-    MultiSelect = True
-    RowSelect = True
-    ParentDoubleBuffered = False
-    ParentFont = False
-    TabOrder = 7
-    ViewStyle = vsReport
-    OnAdvancedCustomDrawItem = OnAdvCustomDrawItem
-    OnClick = listView2Click
-    OnCustomDrawItem = OnCustomDrawItem2
-    OnItemChecked = listView2ItemChecked
+    ExplicitLeft = 250
   end
   object btnAdd1: TPanel
     Left = 28
@@ -229,7 +155,7 @@ object frmMain: TfrmMain
     Font.Style = [fsBold]
     ParentBackground = False
     ParentFont = False
-    TabOrder = 8
+    TabOrder = 6
     OnMouseDown = btnAdd1MouseDown
     OnMouseEnter = btnAdd1MouseEnter
     OnMouseLeave = btnAdd1MouseLeave
@@ -252,14 +178,14 @@ object frmMain: TfrmMain
     Font.Style = [fsBold]
     ParentBackground = False
     ParentFont = False
-    TabOrder = 9
+    TabOrder = 7
     OnMouseDown = btnRemove1MouseDown
     OnMouseEnter = btnRemove1MouseEnter
     OnMouseLeave = btnRemove1MouseLeave
     OnMouseUp = btnRemove1MouseUp
   end
   object btnRemove2: TPanel
-    Left = 264
+    Left = 271
     Top = 83
     Width = 53
     Height = 18
@@ -276,14 +202,15 @@ object frmMain: TfrmMain
     Font.Style = [fsBold]
     ParentBackground = False
     ParentFont = False
-    TabOrder = 10
+    TabOrder = 8
     OnMouseDown = btnRemove2MouseDown
     OnMouseEnter = btnRemove2MouseEnter
     OnMouseLeave = btnRemove2MouseLeave
     OnMouseUp = btnRemove2MouseUp
+    ExplicitLeft = 264
   end
   object btnAdd2: TPanel
-    Left = 200
+    Left = 207
     Top = 83
     Width = 51
     Height = 18
@@ -300,11 +227,12 @@ object frmMain: TfrmMain
     Font.Style = [fsBold]
     ParentBackground = False
     ParentFont = False
-    TabOrder = 11
+    TabOrder = 9
     OnMouseDown = btnAdd2MouseDown
     OnMouseEnter = btnAdd2MouseEnter
     OnMouseLeave = btnAdd2MouseLeave
     OnMouseUp = btnAdd2MouseUp
+    ExplicitLeft = 200
   end
   object upDown1: TUpDown
     Left = 118
@@ -318,11 +246,11 @@ object frmMain: TfrmMain
     ParentShowHint = False
     Position = 107
     ShowHint = True
-    TabOrder = 12
+    TabOrder = 10
     OnClick = upDown1Click
   end
   object upDown2: TUpDown
-    Left = 279
+    Left = 286
     Top = 55
     Width = 17
     Height = 22
@@ -334,26 +262,32 @@ object frmMain: TfrmMain
     ParentShowHint = False
     Position = 107
     ShowHint = True
-    TabOrder = 13
+    TabOrder = 11
     OnClick = upDown2Click
+    ExplicitLeft = 279
   end
   object chkFreeze: TCheckBox
     Left = 8
-    Top = 307
+    Top = 306
     Width = 62
     Height = 17
     Anchors = [akLeft, akBottom]
     Caption = 'Freeze'
-    TabOrder = 14
+    TabOrder = 12
     OnClick = chkFreezeClick
   end
   object GroupBox1: TGroupBox
     Left = 8
     Top = 4
-    Width = 318
+    Width = 325
     Height = 45
+    Anchors = [akLeft, akTop, akRight]
     Caption = 'Prozor'
     TabOrder = 0
+    ExplicitWidth = 318
+    DesignSize = (
+      325
+      45)
     object Label5: TLabel
       Left = 10
       Top = 19
@@ -385,13 +319,118 @@ object frmMain: TfrmMain
       TabOrder = 1
     end
     object btnWhere: TButton
-      Left = 222
+      Left = 229
       Top = 15
       Width = 87
       Height = 23
+      Anchors = [akTop, akRight]
       Caption = 'Poka'#382'i!'
       TabOrder = 2
       OnClick = btnWhereClick
+      ExplicitLeft = 222
+    end
+  end
+  object Panel1: TPanel
+    Left = 8
+    Top = 107
+    Width = 325
+    Height = 193
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    BevelOuter = bvNone
+    Caption = 'Panel1'
+    TabOrder = 13
+    object Splitter1: TSplitter
+      Left = 159
+      Top = 0
+      Width = 4
+      Height = 193
+      ExplicitLeft = 160
+      ExplicitTop = 1
+      ExplicitHeight = 191
+    end
+    object listView1: TListView
+      Tag = 1
+      Left = 0
+      Top = 0
+      Width = 159
+      Height = 193
+      Align = alLeft
+      Checkboxes = True
+      Columns = <
+        item
+          Caption = '#'
+          Width = 24
+        end
+        item
+          Caption = 'X'
+          Width = 65
+        end
+        item
+          Caption = 'Y'
+          Width = 65
+        end>
+      ColumnClick = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      GridLines = True
+      MultiSelect = True
+      RowSelect = True
+      ParentFont = False
+      TabOrder = 0
+      ViewStyle = vsReport
+      OnAdvancedCustomDrawItem = OnAdvCustomDrawItem
+      OnClick = listView1Click
+      OnCustomDrawItem = OnCustomDrawItem1
+      OnItemChecked = listView1ItemChecked
+      ExplicitLeft = -68
+      ExplicitTop = 2
+      ExplicitHeight = 191
+    end
+    object listView2: TListView
+      Left = 163
+      Top = 0
+      Width = 162
+      Height = 193
+      Align = alClient
+      Checkboxes = True
+      Columns = <
+        item
+          Caption = '#'
+          Width = 24
+        end
+        item
+          Caption = 'X'
+          Width = 65
+        end
+        item
+          Caption = 'Y'
+          Width = 65
+        end>
+      ColumnClick = False
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      GridLines = True
+      MultiSelect = True
+      RowSelect = True
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 1
+      ViewStyle = vsReport
+      OnAdvancedCustomDrawItem = OnAdvCustomDrawItem
+      OnClick = listView2Click
+      OnCustomDrawItem = OnCustomDrawItem2
+      OnItemChecked = listView2ItemChecked
+      ExplicitLeft = 160
+      ExplicitTop = 1
+      ExplicitWidth = 24
+      ExplicitHeight = 39
     end
   end
   object dlgColor: TColorDialog
@@ -405,7 +444,7 @@ object frmMain: TfrmMain
     Left = 304
     Top = 336
     Bitmap = {
-      494C010102000800480011001600FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C0101020008004C0011001600FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000440000001600000001002000000000006017
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

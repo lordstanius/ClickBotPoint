@@ -2,7 +2,7 @@ object frmMain: TfrmMain
   Left = 300
   Top = 300
   BorderIcons = [biSystemMenu, biMinimize]
-  Caption = 'Clicking bot 2.3p'
+  Caption = 'Clicking bot 2.4.1p'
   ClientHeight = 377
   ClientWidth = 341
   Color = clWindow
@@ -91,7 +91,6 @@ object frmMain: TfrmMain
     OnMouseDown = btnOperationMouseDown
     OnMouseLeave = btnOperationMouseLeave
     OnMouseUp = btnOperationMouseUp
-    ExplicitWidth = 318
   end
   object btnSearchColor: TPanel
     Left = 162
@@ -136,7 +135,6 @@ object frmMain: TfrmMain
     OnMouseEnter = btnCursor2ColorMouseEnter
     OnMouseLeave = btnCursor2ColorMouseLeave
     OnMouseUp = btnCursor2ColorMouseUp
-    ExplicitLeft = 250
   end
   object btnAdd1: TPanel
     Left = 28
@@ -207,7 +205,6 @@ object frmMain: TfrmMain
     OnMouseEnter = btnRemove2MouseEnter
     OnMouseLeave = btnRemove2MouseLeave
     OnMouseUp = btnRemove2MouseUp
-    ExplicitLeft = 264
   end
   object btnAdd2: TPanel
     Left = 207
@@ -232,7 +229,6 @@ object frmMain: TfrmMain
     OnMouseEnter = btnAdd2MouseEnter
     OnMouseLeave = btnAdd2MouseLeave
     OnMouseUp = btnAdd2MouseUp
-    ExplicitLeft = 200
   end
   object upDown1: TUpDown
     Left = 118
@@ -264,7 +260,6 @@ object frmMain: TfrmMain
     ShowHint = True
     TabOrder = 11
     OnClick = upDown2Click
-    ExplicitLeft = 279
   end
   object chkFreeze: TCheckBox
     Left = 8
@@ -284,7 +279,6 @@ object frmMain: TfrmMain
     Anchors = [akLeft, akTop, akRight]
     Caption = 'Prozor'
     TabOrder = 0
-    ExplicitWidth = 318
     DesignSize = (
       325
       45)
@@ -327,7 +321,6 @@ object frmMain: TfrmMain
       Caption = 'Poka'#382'i!'
       TabOrder = 2
       OnClick = btnWhereClick
-      ExplicitLeft = 222
     end
   end
   object Panel1: TPanel
@@ -385,9 +378,6 @@ object frmMain: TfrmMain
       OnClick = listView1Click
       OnCustomDrawItem = OnCustomDrawItem1
       OnItemChecked = listView1ItemChecked
-      ExplicitLeft = -68
-      ExplicitTop = 2
-      ExplicitHeight = 191
     end
     object listView2: TListView
       Left = 163
@@ -427,10 +417,6 @@ object frmMain: TfrmMain
       OnClick = listView2Click
       OnCustomDrawItem = OnCustomDrawItem2
       OnItemChecked = listView2ItemChecked
-      ExplicitLeft = 160
-      ExplicitTop = 1
-      ExplicitWidth = 24
-      ExplicitHeight = 39
     end
   end
   object dlgColor: TColorDialog
@@ -444,7 +430,7 @@ object frmMain: TfrmMain
     Left = 304
     Top = 336
     Bitmap = {
-      494C0101020008004C0011001600FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010102000800500011001600FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000440000001600000001002000000000006017
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

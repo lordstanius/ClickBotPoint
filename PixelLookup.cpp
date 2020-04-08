@@ -18,6 +18,8 @@ __fastcall PixelLookup::PixelLookup(bool CreateSuspended) : TThread(CreateSuspen
 //---------------------------------------------------------------------------
 void __fastcall PixelLookup::Execute()
 {
+	Synchronize(&Init);
+	
 	bool done = false;
 	while (!Terminated && !done)
 	{
@@ -32,20 +34,18 @@ void __fastcall PixelLookup::Execute()
 
 bool PixelLookup::IsClicked()
 {
-	Synchronize(&Init);
-
 	if (IsPixelMatched(_rect1, frmMain->clickPoint1))
 	{
 		Click(frmMain->clickPoint1);
 		return true;
 	}
-	
+
 	if (IsPixelMatched(_rect2, frmMain->clickPoint2))
 	{
 		Click(frmMain->clickPoint2);
 		if (IsPixelMatched(_rect1, frmMain->clickPoint1))
 			Click(frmMain->clickPoint1);
-		
+
 		return true;
 	}
 
@@ -64,25 +64,22 @@ bool PixelLookup::IsPixelMatched(CRect r, TPoint clickPoint)
 
 	TColor pixelColor = (TColor)GetPixel(hdc, r.x, r.y);
 	ReleaseDC(hwnd, hdc);
-	SendMessage(hwnd, WM_PAINT, 0, 0); // repaint source window (it might get scrambled)
-	
+
 	return pixelColor == _searchColor;
 }
 
 void PixelLookup::Click(TPoint clickPoint)
 {
-	int x = clickPoint.x;
-	int y = clickPoint.y;
-
-	GetCursorPos(&_oldCursorPoint); // save cursor pos before click
 	HWND hwnd = WindowFromPoint(clickPoint);
-	SendMessage(hwnd, WA_ACTIVE, 0, 0); // activate target window first
 
-	ReleaseCapture(); // release capture from current window
-	SetCursorPos(x, y);
+	RECT windowRect;
+	GetWindowRect(hwnd, &windowRect);
 
-	mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0); // simulate click
-	mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+	int x = clickPoint.x - windowRect.left;
+	int y = clickPoint.y - windowRect.top;
+
+	SendMessage(hwnd, WM_LBUTTONDOWN, 0, x | y << 16);
+	SendMessage(hwnd, WM_LBUTTONUP, 0, x | y << 16);
 }
 
 void PixelLookup::DrawRectangle(HDC hdc, CRect r, TColor color)
@@ -137,7 +134,4 @@ void __fastcall PixelLookup::ShutDown()
 	frmMain->btnOperation->Caption = "OUT";
 	frmMain->btnOperation->Color = clRed;
 	frmMain->btnOperation->Tag = 0;
-	frmMain->BringToFront();
-
-	SetCursorPos(_oldCursorPoint.x, _oldCursorPoint.y); // restore cursor pos
 }
